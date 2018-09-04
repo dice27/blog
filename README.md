@@ -10,7 +10,7 @@ Create this blog using following starters.
 
 `gatsby new gatsby-blog https://github.com/gatsbyjs/gatsby-starter-blog`
 
-## Deploy to
+## URL
 
 <https://dice27-blog.netlify.com/>
 
