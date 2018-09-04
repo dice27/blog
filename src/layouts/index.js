@@ -2,6 +2,9 @@ import React from 'react'
 import Link from 'gatsby-link'
 
 import { rhythm, scale } from '../utils/typography'
+import styles from "./layout.module.css";
+
+require("prismjs/themes/prism-okaidia.css");
 
 class Template extends React.Component {
   render() {
@@ -15,58 +18,74 @@ class Template extends React.Component {
 
     if (location.pathname === rootPath) {
       header = (
-        <h1
-          style={{
-            ...scale(1.5),
-            marginBottom: rhythm(1.5),
-            marginTop: 0,
-          }}
+        <div
+          className={styles.topimage}
         >
-          <Link
+          <h1
             style={{
-              boxShadow: 'none',
-              textDecoration: 'none',
-              color: 'inherit',
+              ...scale(1.5),
+              marginLeft: rhythm(1),
+              marginBottom: rhythm(1.5),
+              marginTop: 0,
             }}
-            to={'/'}
           >
-            Gatsby Starter Blog
-          </Link>
-        </h1>
+            <Link
+              style={{
+                boxShadow: 'none',
+                textDecoration: 'none',
+                color: 'white',
+              }}
+              to={'/'}
+            >
+              dice27.blog
+            </Link>
+          </h1>
+        </div>
       )
     } else {
       header = (
-        <h3
+        <div
           style={{
-            fontFamily: 'Montserrat, sans-serif',
-            marginTop: 0,
-            marginBottom: rhythm(-1),
+            backgroundColor: '#312114',
+            color: '#FBE9D6',
+            height: rhythm(2.8),
+            textAlign: 'center',
           }}
         >
-          <Link
+          <h2
             style={{
-              boxShadow: 'none',
-              textDecoration: 'none',
-              color: 'inherit',
+              fontFamily: 'Montserrat, sans-serif',
+              marginTop: 0,
+              marginBottom: rhythm(-1),
+              lineHeight: rhythm(2.8),
             }}
-            to={'/'}
           >
-            Gatsby Starter Blog
-          </Link>
-        </h3>
+            <Link
+              style={{
+                boxShadow: 'none',
+                textDecoration: 'none',
+                color: 'inherit',
+              }}
+              to={'/'}
+            >
+              dice27.blog
+            </Link>
+          </h2>
+        </div>
       )
     }
     return (
-      <div
-        style={{
-          marginLeft: 'auto',
-          marginRight: 'auto',
-          maxWidth: rhythm(24),
-          padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
-        }}
-      >
+      <div>
         {header}
+        <div
+          style={{
+            marginLeft: 'auto',
+            marginRight: 'auto',
+            maxWidth: rhythm(24),
+          }}
+        >
         {children()}
+        </div>
       </div>
     )
   }

@@ -13,12 +13,13 @@ class Bio extends React.Component {
       <div
         style={{
           display: 'flex',
+          marginTop: rhythm(2),
           marginBottom: rhythm(2.5),
         }}
       >
         <img
           src={profilePic}
-          alt={`Kyle Mathews`}
+          alt={`xxx Team.`}
           style={{
             marginRight: rhythm(1 / 2),
             marginBottom: 0,
@@ -27,10 +28,15 @@ class Bio extends React.Component {
           }}
         />
         <p>
-          Written by <strong>Kyle Mathews</strong> who lives and works in San
-          Francisco building useful things.{' '}
-          <a href="https://twitter.com/kylemathews">
-            You should follow him on Twitter
+          Written by <strong>xxx Team.</strong> who lives and works in Osaka,
+          Japan building useful things.{' '}
+          <a
+            href="#"
+            style={{
+              color:'#4C2600'
+            }}
+          >
+            You should follow us on Twitter
           </a>
         </p>
       </div>
