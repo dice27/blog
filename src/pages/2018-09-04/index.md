@@ -1,6 +1,6 @@
 ---
 title: 【Linux】エイリアスの設定方法
-date: "2018-09-04 23:07:41"
+date: "2018-09-04"
 ---
 
 ![Penguins](./penguins.jpg)  
