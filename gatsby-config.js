@@ -3,7 +3,7 @@ module.exports = {
     title: 'dice27.blog',
     author: 'dice27',
     description: 'dice27 の tech な blog.',
-    siteUrl: 'https://dice27.github.io/',
+    siteUrl: 'https://dice27-blog.netlify.com/',
   },
   pathPrefix: '/blog',
   plugins: [
