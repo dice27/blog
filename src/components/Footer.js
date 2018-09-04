@@ -16,16 +16,24 @@ class Footer extends React.Component {
           }}
         />
         <div
-        style={{
-          color: '#666',
-          fontSize: '12px',
-          paddingTop: rhythm(0.3),
-          marginBottom: rhythm(0.3),
-          lineHeight: '2.2em',
-          textAlign: 'center',
-        }}
+          style={{
+            color: '#666',
+            fontSize: '12px',
+            paddingTop: rhythm(0.3),
+            marginBottom: rhythm(0.3),
+            lineHeight: '2.2em',
+            textAlign: 'center',
+          }}
         >
-          © <a href="https://github.com/dice27" >dice27</a>
+          ©
+          <a
+            href="https://github.com/dice27"
+            style={{
+                color: '#4C2600',
+            }}
+          >
+            dice27
+          </a>
         </div>
       </footer>
     )
