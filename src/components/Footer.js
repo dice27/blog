@@ -25,7 +25,7 @@ class Footer extends React.Component {
           textAlign: 'center',
         }}
         >
-          © xxx Team.
+          © <a href="https://github.com/dice27" >dice27</a>
         </div>
       </footer>
     )
