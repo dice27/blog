@@ -12,8 +12,8 @@ Create this blog using following starters.
 
 ## URL
 
-<https://dice27-blog.netlify.com/>
+<https://ytkdee-blog.netlify.com/>
 
 ## Author
 
-[dice27](https://github.com/dice27)
+[ytkdee](https://github.com/ytkdee)
