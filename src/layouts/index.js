@@ -37,7 +37,7 @@ class Template extends React.Component {
               }}
               to={'/'}
             >
-              dice27.blog
+              ytkdee.blog
             </Link>
           </h1>
         </div>
@@ -68,7 +68,7 @@ class Template extends React.Component {
               }}
               to={'/'}
             >
-              dice27.blog
+              ytkdee.blog
             </Link>
           </h2>
         </div>

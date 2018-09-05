@@ -27,12 +27,12 @@ class Footer extends React.Component {
         >
           ©
           <a
-            href="https://github.com/dice27"
+            href="https://github.com/ytkdee"
             style={{
                 color: '#4C2600',
             }}
           >
-            dice27
+            ytkdee
           </a>
         </div>
       </footer>
