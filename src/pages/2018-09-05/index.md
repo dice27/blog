@@ -59,5 +59,5 @@ puts "Hello, World!"
 
 
 ### 参考：
-Ruby 2.5.0 リファレンスマニュアル > Rubyの起動
+Ruby 2.5.0 リファレンスマニュアル > Rubyの起動　　
 <https://docs.ruby-lang.org/ja/2.5.0/doc/spec=2frubycmd.html>
