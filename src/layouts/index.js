@@ -19,14 +19,19 @@ class Template extends React.Component {
     if (location.pathname === rootPath) {
       header = (
         <div
-          className={styles.topimage}
+          style={{
+            backgroundColor: '#312114',
+            color: '#FBE9D6',
+            height: rhythm(2.8),
+            textAlign: 'center',
+          }}
         >
-          <h1
+          <h2
             style={{
-              ...scale(1.5),
-              marginLeft: rhythm(1),
-              marginBottom: rhythm(1.5),
+              fontFamily: 'Montserrat, sans-serif',
               marginTop: 0,
+              marginBottom: rhythm(-1),
+              lineHeight: rhythm(2.8),
             }}
           >
             <Link
@@ -39,7 +44,7 @@ class Template extends React.Component {
             >
               ytkdee.blog
             </Link>
-          </h1>
+          </h2>
         </div>
       )
     } else {
