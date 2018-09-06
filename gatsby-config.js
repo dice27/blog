@@ -36,6 +36,10 @@ module.exports = {
         ],
       },
     },
+    `gatsby-plugin-offline`,
+    {
+      resolve: `gatsby-plugin-styled-components`,
+    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
