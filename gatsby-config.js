@@ -1,9 +1,9 @@
 module.exports = {
   siteMetadata: {
-    title: 'ytkdee.blog',
-    author: 'ytkdee',
-    description: 'ytkdee の tech な blog.',
-    siteUrl: 'https://ytkdee-blog.netlify.com/',
+    title: 'ydah.blog',
+    author: 'ydah',
+    description: 'ydah の tech な blog.',
+    siteUrl: 'https://ydah-blog.netlify.com/',
   },
   pathPrefix: '/blog',
   plugins: [
