@@ -12,8 +12,8 @@ Create this blog using following starters.
 
 ## URL
 
-<https://ytkdee-blog.netlify.com/>
+<https://ydah-blog.netlify.com/>
 
 ## Author
 
-[ytkdee](https://github.com/ytkdee)
+[ydah](https://github.com/ydah)
