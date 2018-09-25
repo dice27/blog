@@ -3,7 +3,7 @@ title: 【Linux】デバッグに有用なシェルのオプション
 date: "2018-09-18"
 ---
 
-![SnowLeopard](./snow-leopard.jpg)  
+![Mammal](./mammal.jpg)  
 
 ---
 
