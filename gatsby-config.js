@@ -36,10 +36,6 @@ module.exports = {
         ],
       },
     },
-    `gatsby-plugin-offline`,
-    {
-      resolve: `gatsby-plugin-styled-components`,
-    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
@@ -49,6 +45,18 @@ module.exports = {
       },
     },
     `gatsby-plugin-feed`,
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `ydah.blog`,
+        short_name: `ydah.blog`,
+        start_url: `/`,
+        background_color: `#ffffff`,
+        theme_color: `#663399`,
+        display: `minimal-ui`,
+        icon: `src/assets/gatsby-icon.png`,
+      },
+    },
     `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
     {
