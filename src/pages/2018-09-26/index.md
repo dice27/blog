@@ -3,7 +3,7 @@ title: 【Linux】シェルスクリプトの文法を解説してくれるサ�
 date: "2018-09-26"
 ---
 
-![red-panda](./red-panda.jpg)  
+![redpanda](./redpanda.jpg)  
 
 ---
 
