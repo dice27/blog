@@ -32,7 +32,7 @@ bash: syntax error near unexpected token `echo'`
 
 ###  foo () any-compound-command(*)
 
- *(*)any-compound-commandとは{ ...; }や()、またfor文やif文でコマンドリストを囲った形を指します。* 
+(*)any-compound-commandとは{ ...; }や()、またfor文やif文でコマンドリストを囲った形を指します。
 
 参考：Compound Commands  
 https://www.gnu.org/software/bash/manual/html_node/Compound-Commands.html
