@@ -1,72 +1,83 @@
 ---
-title: 【Linux】シェルスクリプトでログ出力するのに便利なツール「shell-logger」
-date: "2019-05-16"
+title: 【Linux】シェルスクリプトにおける関数定義
+date: "2019-05-17"
 ---
 
 ![Hedgehog](./hedgehog.jpg)  
 
 ---
 
-シェルスクリプトを書いている時にログのレベルに分けて出力する様な事があると思います。  
-そんな時に便利なツールです。
+シェルスクリプトで関数を定義するには様々な書き方があります。  
+主な関数の書き方について以下に示します。
 
-### rcmdnk/shell-logger  
-https://github.com/rcmdnk/shell-logger
+### foo () any-command
 
-
-### インストール方法
-
-上記のURLから ```etc/shell-logger.sh``` を取得し、
-適当なところにおいてそれを読み込むだけでOKです。
+この形はBorne Shellで使われてたものですがBashではサポートされてません。  
+ただ、Zshではサポートされています。
 
 ```
-$ source .../etc/shell-logger.sh
+$ foo() echo hello
+$ foo
+hello
 ```
 
-### 使い方
-
-読み込むと以下の関数が使えるようになります。
-
-
-|Level |Functions |
-|---|---|
-|DEBUG |debug |
-|INFO |info, information |
-|NOTICE |notice, notification |
-|WARNING |warn, warning |
-|ERROR |err, error |
-
-
-ターミナルからも試すことができます。
+Bashでは上記の様な定義をしようとするとエラーが出ます。
 
 ```
-$ notice This is notice level.
-[2018/XX/XX XX:XX:XX] [NOTICE]: This is notice level.
-$ err This is error.
-[2018/XX/XX XX:XX:XX] [ERROR]: This is error.
-$ notice cat test at pipe/file output|cat
-[2018/XX/XX XX:XX:XX] [NOTICE]: cat test at pipe/file output
+$ foo() echo hello
+bash: syntax error near unexpected token `echo'`
 ```
 
-上の例で最後のnoticeコマンドはパイプで繋げていますが、  
-ファイルへ出力したり、パイプでコマンドに渡す場合は、色の装飾が消える様になっています。
+使えるシェルもあるのですが、1コマンドなので関数にする必要があるかと言われると何とも言い難いところです。
 
-### オプション
+###  foo () any-compound-command(*)
 
-変数を書き換えることで、色々なカスタマイズが出来ます。
+ *(*)any-compound-commandとは{ ...; }や()、またfor文やif文でコマンドリストを囲った形を指します。* 
 
-|変数名 |概要 |デフォルト値 |
-|---|---|---|
-|_LOGGER_DATE_FORMAT |出力する日付のフォーマットの変更 |%Y/%m/%d %H:%M:%S |
-|_LOGGER_LEVEL |0: DEBUG, 1: INFO, 2: NOTICE, 3: WARN, 4: ERROR |1 |
-|_LOGGER_STDERR_LEVELここで指定したレベル以上の出力を stderrに出力する |4 |
-|_LOGGER_DEBUG_COLOR | DEBUGの色変更 |3(イタリック表示) |
-|_LOGGER_INFO_COLOR |INFOの色変更 |""ターミナルのデフォルトの色 |
-|_LOGGER_NOTICE_COLOR |NOTICEの色変更 |36(シアン) |
-|_LOGGER_WARNING_COLOR |WARNINGの色変更 |33(黄色) |
-|_LOGGER_ERROR_COLOR |ERRORの色変更 |31(赤) |
-|_LOGGER_ALWAYS_COLOR |-1: 常に色を付けない 0: ターミナル出力のみ色を付ける 1: 常に色を付ける |0 |
-|_LOGGER_LEVELS |出力時の各レベルのフォーマット。※5つの名前指定が必要 |("DEBUG" "INFO" "NOTICE" "WARNING" "ERROR") |
+参考：Compound Commands  
+https://www.gnu.org/software/bash/manual/html_node/Compound-Commands.html
 
-※色の定義についてはStandard ECMA-48 (p61, p62)を参照  
-http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-048.pdf
+POSIXでサポートされた形でシェルスクリプトを書くなら、この形を採用するといいかと思います。
+
+ ```{ }``` で囲む場合は、Bashにおいてはワンライナーで書く際に ```{``` の後にスペースが必要なのでご注意ください。
+
+```
+$ foo () for i in alfa bravo charlie;do echo $i;done
+$ foo
+alfa
+bravo
+charlie
+```
+
+### function foo { ...; }
+
+これはKshにて導入されたものの様です。  
+Bashでも取り入れられており、多くのシェルでサポートされています。
+
+ *※但し、POSIX準拠ではないです。* 
+
+###  function foo () { ...; }
+
+イメージでは上の二つの合わせ技なので良いと思われるかと思いますが、この形は非推奨です。
+
+いくつかのシェルではサポートされていますが、ほとんどのシェルはこの形を受け入れません。  
+移植性を考えるのであれば使うべきでないと思われます。
+
+参考：Bash Pitfalls  
+http://mywiki.wooledge.org/BashPitfalls#function_foo.28.29
+
+### function foo () other-compound-command
+
+ ```{ }``` 以外のCompound Commandsも非推奨です。  
+上記同様、ほとんどのシェルはこの形を受け入れません。  
+Kshですらこの形は使えないとの事。  
+
+### function foo () simple command
+
+この形はZshでのみ使えます。  
+最初の例とほぼ同じですが積極的に使うべきものでは無いかと思われます。
+
+```
+$ function foo () ls
+bash: syntax error near unexpected token `ls'
+```
