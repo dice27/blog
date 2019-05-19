@@ -1,6 +1,6 @@
 ---
 title: 【Linux】シェルスクリプトでログ出力するのに便利なツール「shell-logger」
-date: "2019-05-16"
+date: "2019-05-17"
 ---
 
 ![Otter](./otter.jpg)  
