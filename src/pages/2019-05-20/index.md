@@ -56,20 +56,20 @@ glLineWidth()を利用して、線幅を変更しつつ線を描画する場合�
 
 
 ```c
-glGetIntegerv(GL_ALIASED_LINE_WIDTH_RANGE, nonantialiasedRange);
-glGetIntegerv(GL_SMOOTH_LINE_WIDTH_RANGE, smoothRange);
+    glGetIntegerv(GL_ALIASED_LINE_WIDTH_RANGE, nonantialiasedRange);
+    glGetIntegerv(GL_SMOOTH_LINE_WIDTH_RANGE, smoothRange);
 
-if (isAntiAliased) {
-    glEnable(GL_LINE_SMOOTH);
-    if((lineWidth < smoothRange[0]) || (lineWidth > smoothRange[1])) {
-        // out of range! logging.
+    if (isAntiAliased) {
+        glEnable(GL_LINE_SMOOTH);
+        if((lineWidth < smoothRange[0]) || (lineWidth > smoothRange[1])) {
+            ;// out of range! logging.
+        }
     }
-}
-else {
-    glDisable(GL_LINE_SMOOTH);
-    if((lineWidth < nonantialiasedRange[0]) || (lineWidth > nonantialiasedRange[1])) {
-        // out of range! logging.
+    else {
+        glDisable(GL_LINE_SMOOTH);
+        if((lineWidth < nonantialiasedRange[0]) || (lineWidth > nonantialiasedRange[1])) {
+            ;// out of range! logging.
+        }
     }
-}
 ```
 
