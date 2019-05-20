@@ -45,27 +45,31 @@ glGetIntegerv(GL_ALIASED_LINE_WIDTH_RANGE, range);
 参照：glLineWidth - OpenGL 4 Reference Pages - Khronos Group
 <https://www.khronos.org/registry/OpenGL-Refpages/gl4/html/glLineWidth.xhtml>
 
-
+```c
 glGetIntegerv(GL_SMOOTH_LINE_WIDTH_RANGE, range);
+```
 
+## 結論
 
-よってglLineWidth()を利用して、線幅を変更しつつ線を描画する場合は、
+glLineWidth()を利用して、線幅を変更しつつ線を描画する場合は、  
 以下の様に判定し範囲外であればログを残す等、範囲外を超えた線幅の指定があった事を分かる様にすべきである。
 
 
+```c
 glGetIntegerv(GL_ALIASED_LINE_WIDTH_RANGE, nonantialiasedRange);
 glGetIntegerv(GL_SMOOTH_LINE_WIDTH_RANGE, smoothRange);
-:
+
 if (isAntiAliased) {
-　glEnable(GL_LINE_SMOOTH);
-　if((lineWidth < smoothRange[0]) || (lineWidth > smoothRange[1])) {
-　　// out of range! logging.
-　}
+    glEnable(GL_LINE_SMOOTH);
+    if((lineWidth < smoothRange[0]) || (lineWidth > smoothRange[1])) {
+        // out of range! logging.
+    }
 }
 else {
-　glDisable(GL_LINE_SMOOTH);
-　if((lineWidth < nonantialiasedRange[0]) || (lineWidth > nonantialiasedRange[1])) {
-　　// out of range! logging.
-　}
+    glDisable(GL_LINE_SMOOTH);
+    if((lineWidth < nonantialiasedRange[0]) || (lineWidth > nonantialiasedRange[1])) {
+        // out of range! logging.
+    }
 }
+```
 
